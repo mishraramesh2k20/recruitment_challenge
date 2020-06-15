@@ -29,3 +29,24 @@ The next step in the interview process is then a personal meeting at our office.
 Our goal here is:
 * See how you approach such a problem
 * Get an idea of your programming skills and tools you can use
+
+
+from flask import Flask,render_template,request
+
+app = flask(__name__)
+app.config['MAX_CONTENT_LENGTH'] > 1 * 1024 * 1024
+@app.route('/')
+
+def index():
+
+  return render_template('index.html')
+
+@app.route('/upload',methods=['GET','POST'])
+
+def upload():
+ file = request.files['inputFile'])
+ return file.filename
+
+if __name__ == '__main__':
+  app.run(debug=True)   
+
